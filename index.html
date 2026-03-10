@@ -62,6 +62,7 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.1), 0 2px 8px rgba(0,0,0,0.06);
     }
     .abstract h2 { text-align: center; margin-top: 0; }
+    .method h2 { text-align: center; }
     .abstract p { margin: 0 0 1rem; text-align: justify; }
     figure { margin: 1.25rem 0; padding: 0; }
     figure img {
@@ -80,6 +81,17 @@
     .bibtex code { font-family: Consolas, Monaco, "Courier New", monospace; font-size: inherit; }
     .footer { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #e0e0e0; text-align: center; font-size: 0.9rem; color: #555; }
     .footer p { margin: 0; }
+    .results-table-wrap { overflow-x: auto; margin: 1.25rem 0; }
+    .results-table {
+      width: 100%; border-collapse: collapse; font-size: 0.85rem;
+      background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      border-radius: 8px; overflow: hidden;
+    }
+    .results-table th, .results-table td { padding: 0.5rem 0.6rem; border: 1px solid #e0e0e0; text-align: center; }
+    .results-table th { background: #e8e9ec; font-weight: 600; color: #222; }
+    .results-table tr.ours { background: #f0f4f8; font-weight: 600; }
+    .results-table .method-name { text-align: left; font-weight: 500; }
+    .table-caption { margin-top: 0.5rem; font-size: 0.9rem; color: #555; font-style: italic; }
     @media (max-width: 640px) {
       .page { padding: 1.25rem 1rem 2rem; }
       .title { font-size: 1.5rem; }
@@ -155,6 +167,37 @@
 
     <section class="results">
       <h2>Results</h2>
+      <div class="results-table-wrap">
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th class="method-name">Method</th>
+              <th colspan="3">LLaVA-1.5</th>
+              <th colspan="3">MiniGPT-4</th>
+              <th colspan="3">mPLUG-Owl2</th>
+            </tr>
+            <tr>
+              <th class="method-name"></th>
+              <th>CHAIR<sub>S</sub>↓</th><th>CHAIR<sub>I</sub>↓</th><th>BLEU↑</th>
+              <th>CHAIR<sub>S</sub>↓</th><th>CHAIR<sub>I</sub>↓</th><th>BLEU↑</th>
+              <th>CHAIR<sub>S</sub>↓</th><th>CHAIR<sub>I</sub>↓</th><th>BLEU↑</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="method-name">Greedy</td><td>20.40<sub>±2.80</sub></td><td>7.08<sub>±0.33</sub></td><td>15.72<sub>±0.10</sub></td><td>32.40<sub>±2.20</sub></td><td>12.20<sub>±0.42</sub></td><td>14.57<sub>±0.11</sub></td><td>22.90<sub>±0.90</sub></td><td>8.62<sub>±0.11</sub></td><td>15.01<sub>±0.24</sub></td></tr>
+            <tr><td class="method-name">Beam Search</td><td>19.50<sub>±2.30</sub></td><td>6.84<sub>±0.79</sub></td><td>15.99<sub>±0.14</sub></td><td>30.10<sub>±0.30</sub></td><td>11.87<sub>±0.37</sub></td><td>15.35<sub>±0.24</sub></td><td>20.30<sub>±0.70</sub></td><td>7.62<sub>±0.19</sub></td><td>15.43<sub>±0.05</sub></td></tr>
+            <tr><td class="method-name">DoLa <small>(ICLR'24)</small></td><td>20.20<sub>±2.80</sub></td><td>6.75<sub>±0.54</sub></td><td>15.68<sub>±0.10</sub></td><td>31.90<sub>±3.30</sub></td><td>12.15<sub>±0.89</sub></td><td>14.54<sub>±0.12</sub></td><td>22.40<sub>±1.80</sub></td><td>8.36<sub>±0.04</sub></td><td>15.13<sub>±0.21</sub></td></tr>
+            <tr><td class="method-name">OPERA <small>(CVPR'24)</small></td><td>17.50<sub>±0.50</sub></td><td>6.07<sub>±0.32</sub></td><td>16.02<sub>±0.02</sub></td><td>29.70<sub>±0.30</sub></td><td>11.96<sub>±0.29</sub></td><td>14.82<sub>±0.05</sub></td><td>20.07<sub>±2.07</sub></td><td>7.18<sub>±0.39</sub></td><td>15.41<sub>±0.12</sub></td></tr>
+            <tr><td class="method-name">VCD <small>(CVPR'24)</small></td><td>20.30<sub>±1.10</sub></td><td>7.28<sub>±0.10</sub></td><td>14.53<sub>±0.01</sub></td><td>29.00<sub>±2.80</sub></td><td>12.64<sub>±1.19</sub></td><td>14.42<sub>±0.01</sub></td><td>22.80<sub>±0.80</sub></td><td>8.68<sub>±0.17</sub></td><td>15.14<sub>±0.13</sub></td></tr>
+            <tr><td class="method-name">Woodpecker <small>(SCIS'24)</small></td><td>23.85<sub>±4.62</sub></td><td>7.50<sub>±0.01</sub></td><td>17.05<sub>±0.00</sub></td><td>28.87<sub>±2.20</sub></td><td>10.20<sub>±0.85</sub></td><td>15.30<sub>±0.01</sub></td><td>26.33<sub>±1.98</sub></td><td>8.43<sub>±0.80</sub></td><td>16.43<sub>±0.00</sub></td></tr>
+            <tr><td class="method-name">LURE <small>(ICLR'24)</small></td><td>19.48<sub>±2.35</sub></td><td>6.50<sub>±0.38</sub></td><td>15.97<sub>±0.01</sub></td><td>27.88<sub>±2.25</sub></td><td>10.20<sub>±0.85</sub></td><td>15.03<sub>±0.01</sub></td><td>21.27<sub>±0.06</sub></td><td>7.67<sub>±0.16</sub></td><td>15.65<sub>±0.15</sub></td></tr>
+            <tr><td class="method-name">HALC <small>(ICML'24)</small></td><td>16.90<sub>±2.10</sub></td><td>5.72<sub>±0.55</sub></td><td>16.02<sub>±0.04</sub></td><td>25.20<sub>±2.00</sub></td><td>9.42<sub>±0.41</sub></td><td>14.91<sub>±0.13</sub></td><td>18.80<sub>±1.20</sub></td><td>7.00<sub>±0.01</sub></td><td>15.33<sub>±0.24</sub></td></tr>
+            <tr><td class="method-name">Nullu <small>(CVPR'25)</small></td><td>15.20<sub>±0.60</sub></td><td>5.30<sub>±0.03</sub></td><td>15.69<sub>±0.04</sub></td><td>21.40<sub>±1.00</sub></td><td>8.99<sub>±0.36</sub></td><td>14.81<sub>±0.06</sub></td><td>15.60<sub>±1.20</sub></td><td>5.77<sub>±0.01</sub></td><td>15.45<sub>±0.01</sub></td></tr>
+            <tr class="ours"><td class="method-name"><strong>CIPHER (Ours)</strong></td><td><strong>13.05</strong><sub>±0.57</sub></td><td><strong>4.53</strong><sub>±0.38</sub></td><td>15.82<sub>±0.25</sub></td><td><strong>18.48</strong><sub>±1.20</sub></td><td><strong>8.33</strong><sub>±0.17</sub></td><td>15.10<sub>±0.43</sub></td><td><strong>13.60</strong><sub>±1.06</sub></td><td><strong>4.92</strong><sub>±0.15</sub></td><td>16.25<sub>±0.47</sub></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-caption">Table 1: CHAIR and BLEU scores across LVLMs; lower CHAIR = less hallucination, higher BLEU = better fluency.</p>
       <figure>
         <img src="assets/results.png" alt="Quantitative and qualitative results of CIPHER on hallucination benchmarks.">
         <figcaption>Figure 3: CIPHER reduces hallucination rates across benchmarks while maintaining task performance.</figcaption>

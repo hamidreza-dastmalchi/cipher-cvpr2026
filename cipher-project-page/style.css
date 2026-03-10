@@ -200,12 +200,53 @@ figcaption {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 .abstract h2 { margin-top: 0; }
+.method h2 { text-align: center; }
 .abstract p {
   margin: 0 0 1rem;
   text-align: justify;
 }
 .abstract p:last-child {
   margin-bottom: 0;
+}
+
+/* Results table */
+.results-table-wrap {
+  overflow-x: auto;
+  margin: 1.25rem 0;
+}
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  background: var(--card-bg);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.results-table th,
+.results-table td {
+  padding: 0.5rem 0.6rem;
+  border: 1px solid var(--border);
+  text-align: center;
+}
+.results-table th {
+  background: #e8e9ec;
+  font-weight: 600;
+  color: var(--text);
+}
+.results-table tr.ours {
+  background: #f0f4f8;
+  font-weight: 600;
+}
+.results-table .method-name {
+  text-align: left;
+  font-weight: 500;
+}
+.table-caption {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-style: italic;
 }
 
 /* BibTeX */
