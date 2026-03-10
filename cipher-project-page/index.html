@@ -139,18 +139,16 @@
       <p>In the <em>inference phase</em>, CIPHER suppresses hallucinations by projecting intermediate hidden states away from this subspace. Experiments across multiple benchmarks show that CIPHER significantly reduces hallucination rates while preserving task performance.</p>
     </section>
 
-    <section class="teaser">
-      <figure>
-        <img src="assets/figures/blockdiagram.png" alt="CIPHER block diagram: model overview and pipeline.">
-        <figcaption>Figure 1: CIPHER overview. We construct counterfactual (image, caption) pairs via diffusion-based editing and use them to identify a low-rank hallucination subspace, which we project away at inference to suppress vision-induced hallucinations.</figcaption>
-      </figure>
-    </section>
-
     <section class="method">
       <h2>Method Overview</h2>
+      <p>CIPHER estimates feature directions triggered by hallucination-inducing visual cues and suppresses these components during inference. The method operates in two stages: (1) an <em>offline phase</em>, where we construct a counterfactual dataset (OHC-25K) and estimate the hallucination subspaces from the LVLM’s hidden representations; and (2) an <em>inference phase</em>, where we nullify hallucination-prone components in hidden states during generation by projecting onto the subspace orthogonal to the learned hallucination directions.</p>
       <figure>
-        <img src="assets/pipeline.png" alt="CIPHER pipeline: offline counterfactual construction and inference-time projection.">
-        <figcaption>Figure 2: CIPHER pipeline. Left: offline phase builds OHC-25K and extracts a hallucination subspace. Right: inference phase projects hidden states away from this subspace.</figcaption>
+        <img src="assets/figures/blockdiagram.png" alt="CIPHER offline phase: counterfactual dataset generation and hallucination subspace estimation.">
+        <figcaption>Figure 1: Offline phase. (a) Counterfactual image–caption pairs are generated via diffusion-based editing. (b) Hallucination directions are extracted from the LVLM and the principal subspace is obtained via SVD, forming the hallucination basis bank.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/figures/blockdiagram-inference.png" alt="CIPHER inference phase: test-time nullification of hallucination components.">
+        <figcaption>Figure 2: Inference phase. At each decoding step, hidden states at selected layers are projected onto the subspace orthogonal to the hallucination space using the basis bank from the offline phase, suppressing hallucination-prone components while preserving core semantics.</figcaption>
       </figure>
     </section>
 
