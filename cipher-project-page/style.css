@@ -177,6 +177,11 @@ figure img {
   box-shadow: var(--shadow-figure);
   background: var(--card-bg);
 }
+figure.figure-sm {
+  max-width: 72%;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 figcaption {
   margin-top: 0.65rem;

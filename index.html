@@ -69,6 +69,7 @@
       border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);
       background: #fff;
     }
+    figure.figure-sm { max-width: 72%; margin-left: auto; margin-right: auto; }
     figcaption { margin-top: 0.65rem; font-size: 0.9rem; color: #555; line-height: 1.5; font-style: italic; }
     .abstract p:last-child { margin-bottom: 0; }
     .bibtex pre {
@@ -146,7 +147,7 @@
         <img src="assets/figures/blockdiagram.png" alt="CIPHER offline phase: counterfactual dataset generation and hallucination subspace estimation.">
         <figcaption>Figure 1: Offline phase. (a) Counterfactual image–caption pairs are generated via diffusion-based editing. (b) Hallucination directions are extracted from the LVLM and the principal subspace is obtained via SVD, forming the hallucination basis bank.</figcaption>
       </figure>
-      <figure>
+      <figure class="figure-sm">
         <img src="assets/figures/blockdiagram-inference.png" alt="CIPHER inference phase: test-time nullification of hallucination components.">
         <figcaption>Figure 2: Inference phase. At each decoding step, hidden states at selected layers are projected onto the subspace orthogonal to the hallucination space using the basis bank from the offline phase, suppressing hallucination-prone components while preserving core semantics.</figcaption>
       </figure>
