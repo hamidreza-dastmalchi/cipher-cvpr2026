@@ -201,6 +201,7 @@ figcaption {
 }
 .abstract h2 { margin-top: 0; }
 .method h2 { text-align: center; }
+.results h2 { text-align: center; }
 .abstract p {
   margin: 0 0 1rem;
   text-align: justify;
