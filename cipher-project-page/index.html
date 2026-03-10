@@ -106,18 +106,18 @@
       </div>
     </header>
 
-    <section class="teaser">
-      <figure>
-        <img src="assets/teaser.png" alt="CIPHER teaser: counterfactual image editing and hallucination suppression overview.">
-        <figcaption>Figure 1: CIPHER overview. We construct counterfactual (image, caption) pairs via diffusion-based editing and use them to identify a low-rank hallucination subspace, which we project away at inference to suppress vision-induced hallucinations.</figcaption>
-      </figure>
-    </section>
-
     <section class="abstract">
       <h2>Abstract</h2>
       <p>While large vision–language models (LVLMs) achieve strong performance on multimodal tasks, they frequently generate hallucinations—unfaithful outputs misaligned with the visual input. To address this issue, we introduce <strong>CIPHER</strong> (Counterfactual Image Perturbations for Hallucination Extraction and Removal), a training-free method that suppresses vision-induced hallucinations via lightweight feature-level correction. Unlike prior training-free approaches that primarily focus on text-induced hallucinations, CIPHER explicitly targets hallucinations arising from the visual modality.</p>
       <p>CIPHER operates in two phases. In the <em>offline phase</em>, we construct <strong>OHC-25K</strong> (Object-Hallucinated Counterfactuals, 25,000 samples), a counterfactual dataset consisting of diffusion-edited images that intentionally contradict the original ground-truth captions. We pair these edited images with the unchanged ground-truth captions and process them through an LVLM to extract hallucination-related representations. Contrasting these representations with those from authentic (image, caption) pairs reveals structured, systematic shifts spanning a low-rank subspace characterizing vision-induced hallucination.</p>
       <p>In the <em>inference phase</em>, CIPHER suppresses hallucinations by projecting intermediate hidden states away from this subspace. Experiments across multiple benchmarks show that CIPHER significantly reduces hallucination rates while preserving task performance.</p>
+    </section>
+
+    <section class="teaser">
+      <figure>
+        <img src="assets/figures/blockdiagram.png" alt="CIPHER block diagram: model overview and pipeline.">
+        <figcaption>Figure 1: CIPHER overview. We construct counterfactual (image, caption) pairs via diffusion-based editing and use them to identify a low-rank hallucination subspace, which we project away at inference to suppress vision-induced hallucinations.</figcaption>
+      </figure>
     </section>
 
     <section class="method">
