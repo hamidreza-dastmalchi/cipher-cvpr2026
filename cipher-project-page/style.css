@@ -35,7 +35,8 @@ body {
   font-weight: 400;
   line-height: 1.65;
   color: var(--text);
-  background: var(--bg);
+  background: linear-gradient(180deg, #eef0f3 0%, #e4e7eb 50%, #e8eaef 100%);
+  min-height: 100vh;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -55,7 +56,7 @@ body {
 
 .title {
   font-family: var(--font-serif);
-  font-size: clamp(1.95rem, 5.2vw, 2.41rem);
+  font-size: clamp(1.66rem, 4.42vw, 2.05rem);
   font-weight: 700;
   line-height: 1.3;
   margin: 0 0 1rem;
@@ -63,9 +64,26 @@ body {
 }
 
 .authors {
-  font-size: 1.05rem;
-  color: var(--text-muted);
+  font-size: 1.12rem;
+  color: #333;
   margin: 0 0 0.35rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+.authors a {
+  color: #0a66c2;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+.authors a:hover {
+  text-decoration: underline;
+  color: #004182;
+}
+.authors .sep {
+  color: var(--text-muted);
+  font-weight: 400;
+  margin: 0 0.2em;
 }
 
 .conference {
@@ -163,11 +181,19 @@ figcaption {
 }
 
 /* Abstract */
+.abstract {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.75rem 2rem;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  border-left: 4px solid #2d3748;
+}
+.abstract h2 { margin-top: 0; }
 .abstract p {
   margin: 0 0 1rem;
   text-align: justify;
 }
-
 .abstract p:last-child {
   margin-bottom: 0;
 }
@@ -211,7 +237,7 @@ figcaption {
   }
 
   .title {
-    font-size: 1.76rem;
+    font-size: 1.5rem;
   }
 
   .buttons {

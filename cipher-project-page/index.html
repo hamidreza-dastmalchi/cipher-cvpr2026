@@ -14,16 +14,23 @@
       margin: 0; padding: 0;
       font-family: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       font-weight: 400; line-height: 1.65; color: #222;
-      background: #fafafa; -webkit-font-smoothing: antialiased;
+      background: linear-gradient(180deg, #eef0f3 0%, #e4e7eb 50%, #e8eaef 100%);
+      min-height: 100vh; -webkit-font-smoothing: antialiased;
     }
     .page { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
     .hero { text-align: center; margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid #e0e0e0; }
     .title {
       font-family: "Libre Baskerville", Georgia, serif;
-      font-size: clamp(1.95rem, 5.2vw, 2.41rem); font-weight: 700; line-height: 1.3;
+      font-size: clamp(1.66rem, 4.42vw, 2.05rem); font-weight: 700; line-height: 1.3;
       margin: 0 0 1rem; color: #222;
     }
-    .authors { font-size: 1.05rem; color: #555; margin: 0 0 0.35rem; }
+    .authors { font-size: 1.12rem; color: #333; margin: 0 0 0.35rem; font-weight: 500; letter-spacing: 0.01em; }
+    .authors a {
+      color: #0a66c2; text-decoration: none; font-weight: 600;
+      transition: color 0.2s ease, text-decoration 0.2s ease;
+    }
+    .authors a:hover { text-decoration: underline; color: #004182; }
+    .authors .sep { color: #555; font-weight: 400; margin: 0 0.2em; }
     .conference { font-size: 0.95rem; color: #555; margin: 0 0 1.5rem; font-weight: 600; }
     .buttons {
       display: flex; flex-wrap: wrap; gap: 0.75rem;
@@ -51,7 +58,14 @@
       font-size: 1.74rem; font-weight: 700; margin: 0 0 1rem; color: #222;
       border-bottom: 1px solid #e0e0e0; padding-bottom: 0.4rem;
     }
-    .abstract h2 { text-align: center; }
+    .abstract {
+      background: #fff; border-radius: 10px;
+      padding: 1.75rem 2rem; margin-bottom: 2.5rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      border-left: 4px solid #2d3748;
+    }
+    .abstract h2 { text-align: center; margin-top: 0; }
+    .abstract p { margin: 0 0 1rem; text-align: justify; }
     figure { margin: 1.25rem 0; padding: 0; }
     figure img {
       width: 100%; height: auto; display: block;
@@ -59,7 +73,6 @@
       background: #fff;
     }
     figcaption { margin-top: 0.65rem; font-size: 0.9rem; color: #555; line-height: 1.5; font-style: italic; }
-    .abstract p { margin: 0 0 1rem; text-align: justify; }
     .abstract p:last-child { margin-bottom: 0; }
     .bibtex pre {
       margin: 0; padding: 1rem 1.25rem; background: #f5f5f5;
@@ -71,7 +84,7 @@
     .footer p { margin: 0; }
     @media (max-width: 640px) {
       .page { padding: 1.25rem 1rem 2rem; }
-      .title { font-size: 1.76rem; }
+      .title { font-size: 1.5rem; }
       .buttons { flex-direction: column; }
       .btn { width: 100%; max-width: 200px; text-align: center; justify-content: center; }
       .abstract p { text-align: left; }
@@ -83,7 +96,12 @@
   <div class="page">
     <header class="hero">
       <h1 class="title">Fighting Hallucinations with Counterfactuals: Diffusion-Guided Perturbations for LVLM Hallucination Suppression</h1>
-      <p class="authors">Hamidreza Dastmalchi, Aijun An, Ali Cheraghian, Hamed Barzamini</p>
+      <p class="authors">
+        <a href="https://www.linkedin.com/in/hamidreza-dastmalchi/" target="_blank" rel="noopener noreferrer">Hamidreza Dastmalchi</a><span class="sep">,</span>
+        <a href="https://www.linkedin.com/in/aijun-an-9149bb51/" target="_blank" rel="noopener noreferrer">Aijun An</a><span class="sep">,</span>
+        <a href="https://www.linkedin.com/in/ali-cheraghian/" target="_blank" rel="noopener noreferrer">Ali Cheraghian</a><span class="sep">,</span>
+        <a href="https://www.linkedin.com/in/hamed-b-a0943280/" target="_blank" rel="noopener noreferrer">Hamed Barzamini</a>
+      </p>
       <p class="conference">CVPR 2026</p>
       <div class="buttons">
         <a href="#" class="btn btn-paper">
