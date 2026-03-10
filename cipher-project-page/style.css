@@ -55,7 +55,7 @@ body {
 
 .title {
   font-family: var(--font-serif);
-  font-size: clamp(1.5rem, 4vw, 1.85rem);
+  font-size: clamp(1.95rem, 5.2vw, 2.41rem);
   font-weight: 700;
   line-height: 1.3;
   margin: 0 0 1rem;
@@ -130,13 +130,14 @@ section {
 
 section h2 {
   font-family: var(--font-serif);
-  font-size: 1.45rem;
+  font-size: 1.74rem;
   font-weight: 700;
   margin: 0 0 1rem;
   color: var(--text);
   border-bottom: 1px solid var(--border);
   padding-bottom: 0.4rem;
 }
+.abstract h2 { text-align: center; }
 
 /* Figures */
 figure {
@@ -210,7 +211,7 @@ figcaption {
   }
 
   .title {
-    font-size: 1.35rem;
+    font-size: 1.76rem;
   }
 
   .buttons {
